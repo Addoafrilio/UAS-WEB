@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>Formulir Edit Mahasiswa</title>
+</head>
+<body>
+<?php
+include('koneksi.php');
+$perintah_baca=”select * from mahasiswa where nim='$_GET[nim]'”;
+$baca=mysql_query($perintah_baca);
+list($nim,$nama,$ttl)=mysql_fetch_row($baca);
+?>
+<h1>Formulir Change Data Mahasiswa</h1>
+<form action='mhs­update.php' method='post'>
+<table>
+<tr>
+<td>Nomor Pokok Mahasiswa</td>
+<td><input type=text name=npm value='<?php echo $nim; ?>' ></td>
+</tr>
+<tr>
+<td>Nama Lengkap</td>
+<td><input type=text name=nama value='<?php echo $nama; ?>' ></td>
+</tr>
+<tr>
+<td>Tanggal Lahir</td>
+<td><input type=text name=ttl value='<?php echo $ttl; ?>' ></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td><input type=submit value='Perbarui' ></td>
+</tr>
+</table>
+</form>
+</body>
+</html>
